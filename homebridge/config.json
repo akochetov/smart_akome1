@@ -1,0 +1,27 @@
+{
+    "bridge": {
+        "name": "Homebridge 918A",
+        "username": "0E:A6:7D:6D:91:8A",
+        "port": 53515,
+        "pin": "031-45-154"
+    },
+    "accessories": [
+	{
+            "accessory": "mqttthing",
+            "type": "switch",
+            "name": "Entrance",
+            "topics": {
+                "getOn": {
+                    "topic": "zigbee2mqtt/0x00124b002173008c/get"
+                },
+                "setOn": {
+                    "topic": "zigbee2mqtt/0x00124b002173008c/set"
+                }
+            },
+            "integerValue": false,
+            "onValue": "ON",
+            "offValue": "OFF"
+        }
+],
+    "platforms": []
+}
