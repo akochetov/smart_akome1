@@ -1,0 +1,12 @@
+homeassistant: false
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://localhost'
+serial:
+  port: /dev/ttyACM0
+advanced:
+  channel: 26
+devices:
+  '0x00124b002173008c':
+    friendly_name: '0x00124b002173008c'
