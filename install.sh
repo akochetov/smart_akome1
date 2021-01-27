@@ -17,8 +17,10 @@ docker pull koenkk/zigbee2mqtt --platform linux/arm/v6
 echo "Starting zigbee2mqtt container in auto-restart mode..."
 docker run -d -it -v $(pwd)/data:/app/data --device=/dev/ttyACM0 -v /run/udev:/run/udev:ro --privileged=true --network host --restart always --name zigbee2mqtt koenkk/zigbee2mqtt
 
-echo "Downloading Homebridge docker image..."
-docker pull oznu/homebridge
+echo "Build Homebridge docker image..."
+cd homebridge
+docker build -t homebridge .
 echo "Starting Homebridge container in auto-restart mode..."
+cd ..
 docker run -d -it -v $(pwd)/homebridge:/homebridge --privileged=true --network host --restart always --name homebridge oznu/homebridge
 

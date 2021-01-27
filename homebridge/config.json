@@ -23,5 +23,12 @@
             "offValue": "OFF"
         }
 ],
-    "platforms": []
+"platforms": [
+    {
+      "platform": "config",
+      "name": "Config",
+      "port": 14032,
+      "sudo": false
+    }
+]
 }
