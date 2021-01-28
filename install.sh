@@ -24,3 +24,18 @@ echo "Starting Homebridge container in auto-restart mode..."
 cd ..
 docker run -d -it -v $(pwd)/homebridge:/homebridge --privileged=true --network host --restart always --name homebridge oznu/homebridge
 
+echo "Downloading smartthings bridge..."
+docker stop smartthings
+docker rm smartthings
+
+git clone https://github.com/stjohnjohnson/smartthings-mqtt-bridge
+cd smartthings-mqtt-bridge
+rm Dockerfile
+cp Dockerfile-rpi Dockerfile
+docker build -t smartthings .
+cd ..
+rm -R smartthings-mqtt-bridge
+
+echo "Starting smartthings bridge in auto-restart mode..."
+docker run -d -it --name=smartthings -v $(pwd)/smartthings:/usr/src/app/config -p 49312:49312 smartthings
+
