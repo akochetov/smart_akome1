@@ -6,13 +6,15 @@
         "pin": "031-45-154"
     },
     "accessories": [
-	{
+        {
             "accessory": "mqttthing",
             "type": "switch",
             "name": "Entrance",
+            "logMqtt": true,
             "topics": {
                 "getOn": {
-                    "topic": "zigbee2mqtt/0x00124b002173008c/get"
+                    "topic": "zigbee2mqtt/0x00124b002173008c",
+                    "apply": "return JSON.parse(message).state_left;"
                 },
                 "setOn": {
                     "topic": "zigbee2mqtt/0x00124b002173008c/set"
@@ -22,13 +24,17 @@
             "onValue": "ON",
             "offValue": "OFF"
         }
-],
-"platforms": [
-    {
-      "platform": "config",
-      "name": "Config",
-      "port": 14032,
-      "sudo": false
-    }
-]
+    ],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 14032,
+            "auth": "form",
+            "theme": "dark-mode",
+            "tempUnits": "c",
+            "lang": "auto",
+            "sudo": false,
+            "platform": "config"
+        }
+    ]
 }

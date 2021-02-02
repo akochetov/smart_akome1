@@ -1,7 +1,7 @@
 ---
 mqtt:
     # Specify your MQTT Broker URL here
-    host: mqtt://localhost
+    host: mqtt://192.168.0.108:1883
     # Example from CloudMQTT
     # host: mqtt:///m10.cloudmqtt.com:19427
 
@@ -29,5 +29,5 @@ mqtt:
     # retain: false
 
 # Port number to listen on
-port: 49312
+port: 8080
 

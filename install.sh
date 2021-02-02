@@ -10,7 +10,7 @@ fi
 echo "Downloading mosquitto docker image..."
 docker pull eclipse-mosquitto
 echo "Starting mosquitto container in auto-restart mode..."
-docker run -d -it -p 1883:1883 --restart always --name mosquitto eclipse-mosquitto 
+docker run -d -it -p 1883:1883 -v $(pwd)/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf --restart always --name mosquitto eclipse-mosquitto 
 
 echo "Downloading zigbee2mqtt docker image..."
 docker pull koenkk/zigbee2mqtt --platform linux/arm/v6
