@@ -5,6 +5,7 @@ mqtt:
   server: 'mqtt://localhost'
 serial:
   port: /dev/ttyACM0
+  disable_led: true
 advanced:
   channel: 26
 devices:
